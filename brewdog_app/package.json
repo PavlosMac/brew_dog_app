@@ -1,0 +1,24 @@
+{
+  "name": "start_point",
+  "version": "1.0.0",
+  "description": "brew_dog app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Pavlos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/godhar/week_11_weekend_homework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/godhar/week_11_weekend_homework/issues"
+  },
+  "homepage": "https://github.com/godhar/week_11_weekend_homework#readme"
+}
