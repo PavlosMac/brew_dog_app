@@ -1,3 +1,5 @@
+var beers;
+
 
 window.onload = function(){
   var url = ' https://punkapi.com/api/v1/beers?abv_gt=8';
@@ -20,7 +22,7 @@ var requestComplete = function(){
 
 
    var jsonString = this.responseText;
-   var beers = JSON.parse(jsonString);
+    beers = JSON.parse(jsonString);
    console.log(beers);
 
    var abv = populateABV(beers);
@@ -35,12 +37,8 @@ var requestComplete = function(){
     new PieChart( beerData );
 
 
+    var button = document.querySelector('#myButton').onclick = dealWithButtonClick;
 
-
-
-    var largestAbvTag = document.getElementByTagName('p');
-    largestAbvTag.innerHTML = "The beer with highest alcholo percentage by volume is "
-    //  + findLargestBeer(beers);
 
 
 }
@@ -48,24 +46,31 @@ var requestComplete = function(){
 
 
 
-var findLargestBeer = function(beers){
-  var max = beers.reduce(function(x,y){
-    (x.abv > y.abv) ? x : y;
-    return x.name;
-  })
 
+var dealWithButtonClick = function(){
+  var abvArray = beers.sort(function(a, b) {
+    return a - b;
+  });
+
+console.log(abvArray);
+document.querySelector('#beer-info').innerText = "the beer with the highest alcohol per volume is {namedBeer} ";
 
 };
 
 
 
+
+
+
+
+
 // construct array of objects from list of beers and list of associated abvs
-var constructData = function(countryData, labels) {
+var constructData = function(abvs, names) {
   var data = [];
-  for(var i = 0; i < countryData.length; i++ ){
+  for(var i = 0; i < abvs.length; i++ ){
     var column = {};
-    column.name = labels[i];
-    column.y = countryData[i];
+    column.name = names[i];
+    column.y = abvs[i];
     data.push(column);
     column.color = colorGenerator();
   }
