@@ -25,6 +25,12 @@ var requestComplete = function(){
     beers = JSON.parse(jsonString);
    console.log(beers);
 
+     main();
+}
+
+
+ var main = function(){
+
    var abv = populateABV(beers);
    var names = populateNames(beers);
 
@@ -36,31 +42,22 @@ var requestComplete = function(){
     };
     new PieChart( beerData );
 
-
     var button = document.querySelector('#myButton').onclick = dealWithButtonClick;
 
-
-
-}
-
-
-
+ }
 
 
 var dealWithButtonClick = function(){
   var abvArray = beers.sort(function(a, b) {
-    return a - b;
+    return a.abv - b.abv;
   });
 
-console.log(abvArray);
-document.querySelector('#beer-info').innerText = "the beer with the highest alcohol per volume is {namedBeer} ";
+  var beerWithHighestAbv = abvArray.pop();
+
+console.log(beerWithHighestAbv);
+document.querySelector('#beer-info').innerText = `the beer with the highest alcohol per volume is "${beerWithHighestAbv.name}"`;
 
 };
-
-
-
-
-
 
 
 
