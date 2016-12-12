@@ -10,3 +10,39 @@ input{
   font-size: 22px;
   margin: 10px;
 }
+
+
+p.description{
+font-weight:bold;
+color:#B07548;
+background-color:#E4EFF0;
+border: 2px groove #b5a759;
+letter-spacing:1pt;
+word-spacing:2pt;
+font-size:12px;
+text-align:center;
+font-family:verdana, sans-serif;
+line-height:1;
+
+
+}
+
+
+p#beer-info{
+  font-weight:bold;
+  color:#B07548;
+  background-color:#E4EFF0;
+  border: 2px groove #b5a759;
+  letter-spacing:1pt;
+  word-spacing:2pt;
+  font-size:12px;
+  text-align:center;
+  font-family:verdana, sans-serif;
+  line-height:1;
+
+
+
+}
+
+
+>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.</p>

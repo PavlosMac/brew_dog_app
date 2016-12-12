@@ -1,5 +1,5 @@
 var beers;
-
+var beerWithHighestAbv
 
 window.onload = function(){
   var url = ' https://punkapi.com/api/v1/beers?abv_gt=8';
@@ -46,17 +46,28 @@ var requestComplete = function(){
 
  }
 
-
 var dealWithButtonClick = function(){
   var abvArray = beers.sort(function(a, b) {
     return a.abv - b.abv;
   });
 
-  var beerWithHighestAbv = abvArray.pop();
+   beerWithHighestAbv = abvArray.pop();
 
-console.log(beerWithHighestAbv);
-document.querySelector('#beer-info').innerText = `the beer with the highest alcohol per volume is "${beerWithHighestAbv.name}"`;
 
+  console.log(beerWithHighestAbv.description);
+  var beerInfo = document.querySelector('#beer-info');
+  beerInfo.innerText = `The beer with the highest alcohol per volume is "${beerWithHighestAbv.name}"`;
+
+  var descriptionButton = document.querySelector('button.description');
+  descriptionButton.onclick = handleDescription;
+
+
+};
+
+
+var handleDescription = function(){
+  var pTag = document.querySelector('p.description')
+  pTag.textContent = beerWithHighestAbv.description;
 };
 
 
@@ -73,6 +84,9 @@ var constructData = function(abvs, names) {
   }
   return data;
 };
+
+
+
 
 // create list of all beers
 var populateNames = function(beers){
